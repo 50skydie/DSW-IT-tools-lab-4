@@ -36,7 +36,7 @@ while [[ $# -gt 0 ]]; do
     shift
     ;;
     --innit | -i)
-       git clone https://github.com/50skydie/DSW-IT-tools-lab-4/tree/mainBranch
+       git clone https://github.com/50skydie/DSW-IT-tools-lab-4
     shift
     ;;
     --error | -e)
