@@ -10,7 +10,6 @@ while [[ $# -gt 0 ]]; do
     --logs)
        if [ $# -eq 2 ]
            then
-           echo $2
            for ((i = 0; i <= $2; i++ ))
                do  
                echo "log"$i.txt, $0, $(date) > log$i.txt
@@ -24,6 +23,14 @@ while [[ $# -gt 0 ]]; do
        shift
        break
        ;;
+    --help)
+       echo "###########  HELP  #########"
+       echo "--date - wyswietla date"
+       echo "--logs - tworzy 100 plikow z nazwa pliku, nazwa skryptu, data"
+       echo "     arg[]: x - tworzy x plikow --logs, uzycie --logs x np --logs 30"
+       echo "--help - wyswietla help'a"
+    shift
+    ;;
   esac
 done
 
