@@ -3,15 +3,24 @@
 while [[ $# -gt 0 ]]; do
   case $1 in
     --date)
-      	echo $(date)
+        echo $(date)
       shift
       break
       ;;
     --logs)
-       for i in {1..100}
-          do
-          echo "log"$i.txt, $0, $(date)  > log$i.txt
-       done
+       if [ $# -eq 2 ]
+           then
+           echo $2
+           for ((i = 0; i <= $2; i++ ))
+               do  
+               echo "log"$i.txt, $0, $(date)  # > log$i.txt
+           done
+       else
+           for i in {1..100}
+               do
+               echo "log"$i.txt, $0, $(date)  # > log$i.txt
+            done
+       fi
        shift
        break
        ;;
