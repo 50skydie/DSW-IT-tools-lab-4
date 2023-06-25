@@ -11,12 +11,14 @@ while [[ $# -gt 0 ]]; do
        if [ $# -eq 2 ]
            then
            for ((i = 0; i <= $2; i++ ))
-               do  
+               do
+               mkdir log$i
                echo "log"$i.txt, $0, $(date) >log$i/ log$i.txt
            done
        else
            for i in {1..100}
                do
+               mkdir log$i
                echo "log"$i.txt, $0, $(date) > log$i/log$i.txt
             done
        fi
@@ -37,27 +39,29 @@ while [[ $# -gt 0 ]]; do
        git clone https://github.com/50skydie/DSW-IT-tools-lab-4/tree/mainBranch
     shift
     ;;
-    --error | e)
+    --error | -e)
        if [ $# -eq 2 ]
            then
            for ((i = 0; i <= $2; i++ ))
-               do  
-               echo "error"$i.txt, $0, $(date) >error$i/ error$i.txt
+               do
+               mkdir error$i
+               echo "error"$i.txt, $0, $(date) >error$i/error$i.txt
            done
        else
            for i in {1..100}
                do
+               mkdir error$i
                echo "error"$i.txt, $0, $(date) > error$i/error$i.txt
             done
        fi
        shift
        break
        ;;
-
+     *)
+         echo "WRONG USAGE"
+         echo "Try" $0 "--help or -h"
+     shift
+     ;;
   esac
 done
-
-
-
-
 
